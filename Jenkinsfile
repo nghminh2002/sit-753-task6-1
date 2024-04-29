@@ -15,7 +15,7 @@ pipeline {
             post {
                 failure {
                     script {
-                        def consoleOutput = currentBuild.rawBuild.getLog(1000) /
+                        def consoleOutput = currentBuild.rawBuild.getLog(1000)
                         emailext body: "Build failed. Console output:\n\n${consoleOutput}", 
                                 subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed", 
                                 to: "s220466717@deakin.edu.au"
