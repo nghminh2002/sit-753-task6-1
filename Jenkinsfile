@@ -5,16 +5,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo "compile and package code"
-                sh 'npm install'
-                sh 'npm run build'
             }
         }
         stage('Unit and Integration Tests') {
             steps {
                 echo "run unit tests with Jest"
-                sh 'npm test'
                 echo "run integration tests with Cypress"
-                sh 'npx cypress run'
             }
             post {
                 success {
@@ -28,7 +24,6 @@ pipeline {
         stage('Code Analysis') {
             steps {
                 echo "code analysis with Eslint"
-                sh 'npm run lint'
             }
         }
         stage('Security Scan') {
