@@ -14,10 +14,10 @@ pipeline {
             }
             post {
                 success {
-                    emailext body: 'Unit and Integration Tests passed. Please find attached logs.', subject: 'Unit and Integration Tests Passed', to: 's220466717@deakin.edu.au'
+                    emailext body: 'Unit and Integration Tests passed. Please find attached logs.', subject: 'Unit and Integration Tests Passed', to: 'minh.nguyenhue02@gmail.com'
                 }
                 failure {
-                    emailext body: 'Unit and Integration Tests failed. Please find attached logs.', subject: 'Unit and Integration Tests Failed', to: 's220466717@deakin.edu.au'
+                    emailext body: 'Unit and Integration Tests failed. Please find attached logs.', subject: 'Unit and Integration Tests Failed', to: 'minh.nguyenhue02@gmail.com'
                 }
             }
         }
@@ -32,10 +32,10 @@ pipeline {
             }
             post {
                 success {
-                    emailext body: 'Security Scan passed. Please find attached logs.', subject: 'Security Scan Passed', to: 's220466717@deakin.edu.au'
+                    emailext body: 'Security Scan passed. Please find attached logs.', subject: 'Security Scan Passed', to: 'minh.nguyenhue02@gmail.com'
                 }
                 failure {
-                    emailext body: 'Security Scan failed. Please find attached logs.', subject: 'Security Scan Failed', to: 's220466717@deakin.edu.au'
+                    emailext body: 'Security Scan failed. Please find attached logs.', subject: 'Security Scan Failed', to: 'minh.nguyenhue02@gmail.com'
                 }
             }
         }
@@ -50,10 +50,10 @@ pipeline {
             }
             post {
                 success {
-                    emailext body: 'Integration Tests on Staging passed. Please find attached logs.', subject: 'Integration Tests on Staging Passed', to: 's220466717@deakin.edu.au'
+                    emailext body: 'Integration Tests on Staging passed. Please find attached logs.', subject: 'Integration Tests on Staging Passed', to: 'minh.nguyenhue02@gmail.com'
                 }
                 failure {
-                    emailext body: 'Integration Tests on Staging failed. Please find attached logs.', subject: 'Integration Tests on Staging Failed', to: 's220466717@deakin.edu.au'
+                    emailext body: 'Integration Tests on Staging failed. Please find attached logs.', subject: 'Integration Tests on Staging Failed', to: 'minh.nguyenhue02@gmail.com'
                 }
             }
         }
