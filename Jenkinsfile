@@ -13,22 +13,18 @@ pipeline {
                 echo "run integration tests with Cypress"
             }
             post {
-                failure {
+                always {
                     script {
-                        def consoleOutput = currentBuild.rawBuild.getLog(1000)
-                        emailext body: "Build failed. Console output:\n\n${consoleOutput}", 
-                                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Failed", 
-                                to: "s220466717@deakin.edu.au"
+                        def consoleOutputFile = "${env.WORKSPACE}/console_output.txt"
+
+                        writeFile file: consoleOutputFile, text: currentBuild.rawBuild.getLog(1000)
+
+                        emailext body: "Build ${currentBuild.result}: ${env.JOB_NAME} #${env.BUILD_NUMBER}\n\nConsole output is attached.", 
+                                subject: "Build ${currentBuild.result}: ${env.JOB_NAME} #${env.BUILD_NUMBER}", 
+                                mimeType: 'text/html', to: 'your_email@example.com', 
+                                attachmentsPattern: consoleOutputFile
                     }
                 }
-                success {
-                    script {
-                        def consoleOutput = currentBuild.rawBuild.getLog(1000)
-                        emailext body: "Build successful. Console output:\n\n${consoleOutput}", 
-                                subject: "${env.JOB_NAME} - Build #${env.BUILD_NUMBER} - Successful", 
-                                to: "s220466717@deakin.edu.au"
-                    }
-                }      
             }
         }
         // stage('Code Analysis') {
