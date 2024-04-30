@@ -16,7 +16,7 @@ function App () {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Hello
+          SIT753-Task 6.1C
         </a>
       </header>
     </div>
