@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "compile and package code"
+                echo "compile and package code with npm run build"
             }
         }
         stage('Unit and Integration Tests') {
